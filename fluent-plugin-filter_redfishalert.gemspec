@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.version     = "0.0.2"
   s.authors     = ["Tobi Ajagbe"]
   s.email       = ["tobiajagbe@microsoft.com"]
-  s.homepage    = "https://github.com/tohbiee/redfish_alerts_fluentd"
+  s.homepage    = "https://github.com/tohbiee/fluent-plugin-filter_redfishalert"
   s.summary     = "A Fluentd filter plugin to rettrieve selected redfish alert"
   s.description = s.summary
   s.licenses    = ["Apache-2.0"]
