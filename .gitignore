@@ -1,4 +1,4 @@
-*.gem
+
 *.rbc
 /.config
 /coverage/
@@ -57,4 +57,3 @@ build-iPhoneSimulator/
 
 ~
 ~\.gemrc
-fluent-plugin-filter_redfishalert-0.0.1.gem
