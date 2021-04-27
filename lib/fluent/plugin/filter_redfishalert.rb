@@ -13,7 +13,7 @@ module Fluent::Plugin
     def configure(conf)
       super
         @values = []
-	  end
+      end
 
     def filter_stream(tag, es)
   
