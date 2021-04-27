@@ -24,8 +24,8 @@ module Fluent::Plugin
           begin
             myRecord = {}
             myRecord['Namespace'] = @namespace
-            myRecord['Metric'] = val['MessageId']
-            myRecord['Dimensions'] = {'Region' => @coloregion, 'IP' => val['REMOTE_ADDR'], 'Message' => val['Message']}
+            myRecord['Metric'] = 'RedfishAlert'
+            myRecord['Dimensions'] = {'Region' => @coloregion, 'AlertID' => = val['MessageId'], 'IP' => val['REMOTE_ADDR'], 'Message' => val['Message']}
             myRecord['Value'] = '1'
             if !@filtering&.empty?
               if @filtering&.include?(val['MessageId'])
