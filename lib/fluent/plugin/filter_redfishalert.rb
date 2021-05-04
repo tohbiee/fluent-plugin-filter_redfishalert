@@ -27,12 +27,7 @@ module Fluent::Plugin
             myRecord['Metric'] = 'RedfishAlert'
             myRecord['Dimensions'] = {'Region' => @coloregion, 'AlertID' => val['MessageId'], 'IP' => record['REMOTE_ADDR']}
             myRecord['Value'] = '1'
-            if !@filtering&.empty?
-              if @filtering&.include?(val['MessageId'])
-                new_es.add(time, myRecord)
-              end
-            else
-              myRecord['Value'] = '0' if val['Severity'] != 'Critical' 
+            if @filtering&.include?(val['MessageId'])
               new_es.add(time, myRecord)
             end
           rescue => e
