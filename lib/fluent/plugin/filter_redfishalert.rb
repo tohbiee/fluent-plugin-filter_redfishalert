@@ -7,7 +7,6 @@ module Fluent::Plugin
 
     # config_param for the plugins
     config_param :namespace, :string, :default => 'ColomanagerFluentdRedfish'
-    config_param :coloregion, :string, :default => 'CentralusEUAP'
     config_param :filtering, :array, :default => [], value_type: :string
 	
     def configure(conf)
@@ -25,7 +24,7 @@ module Fluent::Plugin
             myRecord = {}
             myRecord['Namespace'] = @namespace
             myRecord['Metric'] = 'RedfishAlert'
-            myRecord['Dimensions'] = {'Region' => @coloregion, 'AlertID' => val['MessageId'], 'IP' => record['REMOTE_ADDR']}
+            myRecord['Dimensions'] = {'BaremetalMachineID' => record['machineID'], 'AlertID' => val['MessageId']}
             myRecord['Value'] = '1'
             if @filtering&.include?(val['MessageId'])
               new_es.add(time, myRecord)
